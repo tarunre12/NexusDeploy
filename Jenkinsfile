@@ -28,13 +28,15 @@ pipeline {
                 sh "docker push ${ECR_REPO}:${GIT_COMMIT}"
             }
         }
-    }
-    stage('Deploy to EKS') {
-    steps {
-        sh "aws eks update-kubeconfig --name nexusdeploy --region ${AWS_REGION}"
-        sh "helm upgrade --install nexusdeploy nexusdeploy-chart --set image.tag=${GIT_COMMIT}"
-    }
-}
+        
+        stage('Deploy to EKS') {
+            steps {
+                sh "aws eks update-kubeconfig --name nexusdeploy --region ${AWS_REGION}"
+                sh "helm upgrade --install nexusdeploy nexusdeploy-chart --set image.tag=${GIT_COMMIT}"
+            }
+        }
+    } 
+    
     post {
         success {
             echo "Pipeline succeeded"
