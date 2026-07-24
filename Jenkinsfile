@@ -3,7 +3,7 @@ pipeline {
 
     environment {
     IMAGE_NAME = "nexusdeploy-app"
-    ECR_REPO = "<account-id>.dkr.ecr.us-east-1.amazonaws.com/nexusdeploy"
+    ECR_REPO = "469351852174.dkr.ecr.us-east-1.amazonaws.com/nexusdeploy"
     AWS_REGION = "us-east-1"
 }
 
