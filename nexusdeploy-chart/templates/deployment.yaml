@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: nexusdeploy-app
-          image: 469351852174..dkr.ecr.us-east-1.amazonaws.com/nexusdeploy:{{ .Values.image.tag }}
+          image: 469351852174.dkr.ecr.us-east-1.amazonaws.com/nexusdeploy:{{ .Values.image.tag }}
           ports:
             - containerPort: 3000
           resources:

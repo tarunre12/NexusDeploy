@@ -1,2 +1,3 @@
 image:
-  tag: latest
+  repository: 469351852174.dkr.ecr.us-east-1.amazonaws.com/nexusdeploy
+  tag: "latest"
