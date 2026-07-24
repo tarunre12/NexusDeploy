@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nexusdeploy-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nexusdeploy-app
+  template:
+    metadata:
+      labels:
+        app: nexusdeploy-app
+    spec:
+      containers:
+        - name: nexusdeploy-app
+          image: 469351852174..dkr.ecr.us-east-1.amazonaws.com/nexusdeploy:{{ .Values.image.tag }}
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
